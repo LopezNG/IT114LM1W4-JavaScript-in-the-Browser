@@ -41,7 +41,9 @@
         ulElement.children[1].textContent = "IT102 - Python Fundamentals";
 
         // Checkpoint 3.2 What is the difference between innerText, textContent, and innerHTML. When should you use one over the other?
-        // Answer:
+        // Answer: innerText: It returns the visible text contained in a node, while ignoring script and style elements. 
+        // textContent: It returns all text within a node, including script and style elements. 
+        // innerHTML: It gets or sets the HTML content of an element or in the inner HTML.
 
         // Todo 2.3 Create another list item, and add it as a child of the unordered list
         //          Set the text of the list item to your favorite subject
@@ -57,9 +59,11 @@
 
         // Todo 2.5 Delete the third list item in the unordered list
         ulElement.removeChild(ulElement.children[2]);
-        
+
         // Checkpoint 2.3 What is the difference between node and element?
-        // Answer:
+        // Answer: A Node is an interface from which a number of DOM types inherit, and allows these various types to be treated similarly.
+        // An Element is one kind of Node. It is the most general base class from which all objects in a Document inherit. It only has methods 
+        // and properties common to all kinds of elements. More specific classes inherit from Element.
 
         // Bonus Todo 2.6 Select the parent of the unordered list.
 
