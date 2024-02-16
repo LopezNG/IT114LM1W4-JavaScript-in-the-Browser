@@ -15,20 +15,59 @@
             // Resource: https://www.freecodecamp.org/news/how-to-fetch-data-from-an-api-using-the-fetch-api-in-javascript/
 
             // Checkpoint 4.1 What are HTTP requests and reponses? What are the various HTTP verbs and what do they do?
-            // Answer: 
+            // Answer: HTTP requests are messages sent by the client to initiate an action on the server. Responses are the answers from the server. 
+            // HTTP verbs include GET(retrieve), POST(send data), PUT(update data), DELETE(remove data), etc.
 
-            // Todo 4.1 Fetch the list of users. Outout the first and second page of users.
+            // Todo 4.1 Fetch the list of users. Output the first and second page of users.
+            let response = await fetch('https://reqres.in/api/users?page=1');
+            let data = await response.json();
+            console.log(data);
+            response = await fetch('https://reqres.in/api/users?page=2');
+            data = await response.json();
+            console.log(data);
 
             // Todo 4.2 Fetch the information about a single user. Display their information
+            response = await fetch('https://reqres.in/api/users/2');
+            data = await response.json();
+            console.log(data);
 
             // Todo 4.3 Create a user
+            response = await fetch('https://reqres.in/api/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: 'Jin Kazama',
+                    job: 'Network Engineer'
+                })
+            });
+            data = await response.json();
+            console.log(data);
 
             // Todo 4.4 Update the information of the user that you have created
+            response = await fetch('https://reqres.in/api/users/2', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: 'Jin Kazama',
+                    job: 'Tekken Fighter'
+                })
+            });
+            data = await response.json();
+            console.log(data);
 
             // Todo 4.5 Delete the user that you have created
+            response = await fetch('https://reqres.in/api/users/2', {
+                method: 'DELETE'
+            });
+            console.log(response.status);
 
-            // Checkpoint 4.2 What is the difference between callbacks, then-catch vs await-try-catch? When should you use one over the other
-            // Answer: 
+            // Checkpoint 4.2 What is the difference between callbacks, then catch vs await try catch? When should you use one over the other
+            // Answer: Callbacks are functions passed into another function as arguments. Then catch is used with Promises for async operations. Await try catch is used with async await for cleaner, more readable async code. 
+            // Use callbacks for simple async tasks, then catch for more complex tasks, and await try catch when working with many async tasks.
         }
         start()
 
